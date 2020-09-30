@@ -1,0 +1,9 @@
+/cmake-build-*/
+/.idea/
+/.git/
+
+.ipynb_checkpoints/
+__pycache__/
+/gen/
+
+*.exe
