@@ -1,5 +1,5 @@
 import numpy as np
-from utils.utils import weighted_mean, input_ints, smart_div
+from utils.utils import input_ints, smart_div, weighted_average
 
 
 def __stats(cm):
@@ -17,12 +17,12 @@ def micro_f1_score(cm):
     y_true, y_pred = __stats(cm)
     prec = __smart_div(cm.diagonal(), y_pred)
     rec = __smart_div(cm.diagonal(), y_true)
-    return weighted_mean(__f1_score(prec, rec), weights=y_true)
+    return weighted_average(__f1_score(prec, rec), weights=y_true)
 
 
 def macro_f1_score(cm):
     y_true, y_pred = __stats(cm)
-    m_prec = weighted_mean(__smart_div(cm.diagonal(), y_pred), weights=y_true)
+    m_prec = weighted_average(__smart_div(cm.diagonal(), y_pred), weights=y_true)
     m_rec = np.sum(cm.diagonal()) / np.sum(y_true)
     return __f1_score(m_prec, m_rec)
 

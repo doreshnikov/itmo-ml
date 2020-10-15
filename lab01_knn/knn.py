@@ -1,6 +1,6 @@
 import numpy as np
 from common.graders import Distance, Kernel
-from utils.utils import weighted_mean, count_uniform, argmax, input_ints, smart_div
+from utils.utils import weighted_average, count_uniform, argmax, input_ints, smart_div
 
 
 class KNNClassifier:
@@ -74,7 +74,7 @@ class KNNRegressionClassifier(KNNClassifier):
                     weight = count_uniform([neighbors[i][1] for i in range(len(self))])
 
             if policy == 'mean':
-                y.append(weighted_mean(list(weight.keys()), weights=list(weight.values())))
+                y.append(weighted_average(list(weight.keys()), weights=list(weight.values())))
             else:
                 y.append(argmax(weight))
         return y

@@ -1,35 +1,26 @@
 import math
+import numpy as np
 
 
-def mean(values):
-    return sum(values) / len(values)
+def smart_div(a, b):
+    return a if b == 0 else a / b
 
 
-def smart_division(a, b):
-    return a / b if b != 0 else (0 if a == 0 else float('+inf'))
+__smart_div = np.vectorize(smart_div)
 
 
-def prediction(coef, x):
-    n, m = len(x), len(coef)
-    return [
-        sum([coef[j] * x[i][j] for j in range(m)])
-        for i in range(n)
-    ]
+def prediction(alpha, x):
+    return x.dot(alpha)
 
 
 def nrmse(y_pred, y):
-    n = len(y)
-    return smart_division(
-        mean([math.pow(y_pred[i] - y[i], 2) for i in range(n)]),
-        max(y) - min(y)
-    )
+    mse = np.mean((y_pred - y) ** 2)
+    return smart_div(math.sqrt(mse), np.ptp(y))
 
 
 def smape(y_pred, y, percent=False):
-    n = len(y)
-    score = mean(
-        [smart_division(
-            abs(y_pred[i] - y[i]),
-            abs(y_pred[i]) + abs(y[i])
-        ) for i in range(n)])
+    score = np.mean(__smart_div(
+        np.abs(y_pred - y),
+        np.abs(y_pred) + np.abs(y)
+    ))
     return score if not percent else score * 100

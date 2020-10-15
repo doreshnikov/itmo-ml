@@ -1,4 +1,4 @@
-def weighted_mean(values, weights=None):
+def weighted_average(values, weights=None):
     if weights is None:
         return sum(values) / len(values)
     total = sum(weights)
