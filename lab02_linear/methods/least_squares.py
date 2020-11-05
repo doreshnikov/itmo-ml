@@ -1,8 +1,8 @@
 import math
 import numpy as np
 
-from lab02_linear.common.graders import prediction, smape
-from lab02_linear.common.data import normalize
+from lab02_linear.utils.metrics import prediction, smape
+from lab02_linear.utils.data import normalize
 
 
 def solve(

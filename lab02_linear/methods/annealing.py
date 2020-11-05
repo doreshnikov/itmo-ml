@@ -4,7 +4,7 @@ import sys
 from copy import copy
 from random import uniform
 
-from lab02_linear.common.graders import smape, prediction
+from lab02_linear.utils.metrics import smape, prediction
 
 
 def linear_force_downhill(max_temp):

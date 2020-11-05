@@ -2,8 +2,8 @@ import math
 import numpy as np
 
 from typing import Union, Generator, Any
-from lab02_linear.common.graders import smart_div, prediction, smape
-from lab02_linear.common.data import normalize
+from lab02_linear.utils.metrics import smart_div, prediction, smape
+from lab02_linear.utils.data import normalize
 
 
 def sign(a):
