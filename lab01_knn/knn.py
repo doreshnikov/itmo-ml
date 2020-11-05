@@ -1,5 +1,5 @@
 import numpy as np
-from common.graders import Distance, Kernel
+from lab01_knn.common.graders import Distance, Kernel
 from utils.utils import weighted_average, count_uniform, argmax, input_ints, smart_div
 
 
