@@ -36,6 +36,10 @@ def confusion_matrix(y_true, y_pred, classes=None):
     return cm
 
 
+def accuracy(y_true, y_pred):
+    return np.mean(y_true == y_pred)
+
+
 if __name__ == '__main__':
     k = int(input())
     cm = np.asarray([input_ints() for _ in range(k)])
