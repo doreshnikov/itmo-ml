@@ -1,3 +1,6 @@
+from math import log
+
+
 def weighted_average(values, weights=None):
     if weights is None:
         return sum(values) / len(values)
@@ -24,3 +27,7 @@ def input_ints():
 
 def smart_div(a, b):
     return a / b if b != 0 else 0
+
+
+def smart_log(x):
+    return log(x) if x > 0 else float('-inf')

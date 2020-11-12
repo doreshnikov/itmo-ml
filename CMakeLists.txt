@@ -10,4 +10,4 @@ add_compile_definitions(LOCAL)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
-add_executable(gradient lab02_linear/methods/gradient.cpp)
+add_executable(bayes lab04_bayes/bayes.cpp)
